@@ -1,0 +1,22 @@
+{
+  "name": "react-next_folder",
+  "version": "2.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "bin": {
+    "create-folder": "./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "inquirer": "^12.3.0"
+  }
+}
