@@ -1,6 +1,6 @@
 {
-  "name": "react-next_folder",
-  "version": "2.0.0",
+  "name": "react-next_folders",
+  "version": "2.3.0",
   "main": "index.js",
   "scripts": {
     "build": "tsc"
@@ -18,5 +18,10 @@
   },
   "dependencies": {
     "inquirer": "^12.3.0"
-  }
+  },
+  "files": [
+    "dist/**/*.js",
+    "package.json",
+    "README.md"
+  ]
 }

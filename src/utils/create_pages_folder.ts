@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
 
-export const createJsxCompFile = () => {
-  const folderPath = path.join(process.cwd(), "src", "components");
+export const createJsxPageFile = () => {
+  const folderPath = path.join(process.cwd(), "src", "pages");
   const filePath = path.join(folderPath, "default.jsx");
 
   fs.mkdir(folderPath, { recursive: true }, (err) => {
@@ -19,8 +19,8 @@ export const createJsxCompFile = () => {
   });
 };
 
-export const createTsxCompFile = () => {
-  const folderPath = path.join(process.cwd(), "src", "components");
+export const createTsxPageFile = () => {
+  const folderPath = path.join(process.cwd(), "src", "pages");
   const filePath = path.join(folderPath, "default.tsx");
 
   fs.mkdir(folderPath, { recursive: true }, (err) => {
@@ -36,4 +36,3 @@ export const createTsxCompFile = () => {
     }
   });
 };
-

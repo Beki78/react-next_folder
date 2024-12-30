@@ -1,0 +1,8 @@
+*.d.ts
+src/
+tsconfig.json
+*.log
+node_modules/
+dist/*.map
+.eslintrc
+.prettierrc
