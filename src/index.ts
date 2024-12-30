@@ -1,11 +1,24 @@
 #!/usr/bin/env node
 
 import inquirer from "inquirer";
-import { createJsxCompFile, createTsxCompFile } from "./utils/create_components_folder";
-import { createJsxPageFile, createTsxPageFile } from "./utils/create_pages_folder";
-import { createJsStoreFile, createTsStoreFile } from "./utils/create_store_folder";
-import { createJsUtilsFile, createTsUtilsFile } from "./utils/create_utils_folder";
-
+import {
+  createJsxCompFile,
+  createTsxCompFile,
+} from "./utils/create_components_folder";
+import {
+  createJsxPageFile,
+  createTsxPageFile,
+} from "./utils/create_pages_folder";
+import {
+  createJsStoreFile,
+  createTsStoreFile,
+} from "./utils/create_store_folder";
+import {
+  createJsUtilsFile,
+  createTsUtilsFile,
+} from "./utils/create_utils_folder";
+import { createJsHooksFile, createTsHooksFile } from "./utils/create_hooks_folder";
+import { createTsTypesFile } from "./utils/create_types_folder";
 
 const createFolderScript = async () => {
   const questions = await inquirer.prompt([
@@ -13,8 +26,6 @@ const createFolderScript = async () => {
       type: "list",
       name: "chooseFramework",
       message: "Which framework are you using?",
-
-      
       choices: ["React", "Next Js"],
     },
     {
@@ -22,6 +33,18 @@ const createFolderScript = async () => {
       name: "isTypescript",
       message: "Are you using Typescript?",
       default: true,
+    },
+    {
+      type: "list",
+      name: "chooseStateManagement",
+      message: "What state management are you using?",
+      choices: ["Redux", "Zustand", "No, Thanks"],
+    },
+    {
+      type: "confirm",
+      name: "isReduxSaga",
+      message: "Are you using Redux Saga?",
+      choices: false,
     },
     {
       type: "confirm",
@@ -47,9 +70,19 @@ const createFolderScript = async () => {
       message: "Do you want utils directory?",
       default: true,
     },
+    {
+      type: "confirm",
+      name: "isHooks",
+      message: "Do you want hooks directory?",
+      default: true,
+    },
   ]);
 
-  const { isTypescript, isComponent, isPages, isStore, isUtils } = questions;
+  const { isTypescript, isComponent, isPages, isStore, isUtils, isHooks } =
+    questions;
+    if (isTypescript) {
+      createTsTypesFile()
+    }
   if (isTypescript && isComponent) {
     createTsxCompFile();
   } else if (!isTypescript && isComponent) {
@@ -69,6 +102,11 @@ const createFolderScript = async () => {
     createTsUtilsFile();
   } else if (!isTypescript && isUtils) {
     createJsUtilsFile();
+  }
+  if (isTypescript && isHooks) {
+    createTsHooksFile();
+  } else if (!isTypescript && isHooks) {
+    createJsHooksFile();
   }
 };
 createFolderScript();
