@@ -17,34 +17,26 @@ import {
   createJsUtilsFile,
   createTsUtilsFile,
 } from "./utils/create_utils_folder";
-import { createJsHooksFile, createTsHooksFile } from "./utils/create_hooks_folder";
+import {
+  createJsHooksFile,
+  createTsHooksFile,
+} from "./utils/create_hooks_folder";
 import { createTsTypesFile } from "./utils/create_types_folder";
+import { createJsApiFile, createTsApiFile } from "./utils/create_api_folder";
 
 const createFolderScript = async () => {
   const questions = await inquirer.prompt([
     {
       type: "list",
       name: "chooseFramework",
-      message: "Which framework are you using?",
-      choices: ["React", "Next Js"],
+      message: "Which library/framework are you using?",
+      choices: ["React"],
     },
     {
       type: "confirm",
       name: "isTypescript",
       message: "Are you using Typescript?",
       default: true,
-    },
-    {
-      type: "list",
-      name: "chooseStateManagement",
-      message: "What state management are you using?",
-      choices: ["Redux", "Zustand", "No, Thanks"],
-    },
-    {
-      type: "confirm",
-      name: "isReduxSaga",
-      message: "Are you using Redux Saga?",
-      choices: false,
     },
     {
       type: "confirm",
@@ -76,37 +68,63 @@ const createFolderScript = async () => {
       message: "Do you want hooks directory?",
       default: true,
     },
+    {
+      type: "confirm",
+      name: "isApi",
+      message: "Do you want api directory?",
+      default: true,
+    },
   ]);
 
-  const { isTypescript, isComponent, isPages, isStore, isUtils, isHooks } =
-    questions;
+  const {
+    chooseFramework,
+    isTypescript,
+    isComponent,
+    isPages,
+    isStore,
+    isUtils,
+    isHooks,
+    isApi,
+  } = questions;
+
+  if (chooseFramework == "Next") {
+    console.log("Hi");
+    return;
+  }
+  if (chooseFramework == "React") {
     if (isTypescript) {
-      createTsTypesFile()
+      createTsTypesFile();
     }
-  if (isTypescript && isComponent) {
-    createTsxCompFile();
-  } else if (!isTypescript && isComponent) {
-    createJsxCompFile();
-  }
-  if (isTypescript && isPages) {
-    createTsxPageFile();
-  } else if (!isTypescript && isPages) {
-    createJsxPageFile();
-  }
-  if (isTypescript && isStore) {
-    createTsStoreFile();
-  } else if (!isTypescript && isStore) {
-    createJsStoreFile();
-  }
-  if (isTypescript && isUtils) {
-    createTsUtilsFile();
-  } else if (!isTypescript && isUtils) {
-    createJsUtilsFile();
-  }
-  if (isTypescript && isHooks) {
-    createTsHooksFile();
-  } else if (!isTypescript && isHooks) {
-    createJsHooksFile();
+    if (isTypescript && isComponent) {
+      createTsxCompFile();
+    } else if (!isTypescript && isComponent) {
+      createJsxCompFile();
+    }
+    if (isTypescript && isPages) {
+      createTsxPageFile();
+    } else if (!isTypescript && isPages) {
+      createJsxPageFile();
+    }
+    if (isTypescript && isStore) {
+      createTsStoreFile();
+    } else if (!isTypescript && isStore) {
+      createJsStoreFile();
+    }
+    if (isTypescript && isUtils) {
+      createTsUtilsFile();
+    } else if (!isTypescript && isUtils) {
+      createJsUtilsFile();
+    }
+    if (isTypescript && isHooks) {
+      createTsHooksFile();
+    } else if (!isTypescript && isHooks) {
+      createJsHooksFile();
+    }
+    if (isTypescript && isApi) {
+      createTsApiFile();
+    } else if (!isTypescript && isApi) {
+      createJsApiFile();
+    }
   }
 };
 createFolderScript();

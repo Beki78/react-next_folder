@@ -1,6 +1,6 @@
 {
   "name": "react-next_folders",
-  "version": "2.3.0",
+  "version": "2.8.0",
   "main": "index.js",
   "scripts": {
     "build": "tsc"
@@ -8,10 +8,17 @@
   "bin": {
     "create-folder": "./dist/index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "react",
+    "next",
+    "folders",
+    "project-setup",
+    "typescript",
+    "cli-tool"
+  ],
+  "author": "beki78",
   "license": "MIT",
-  "description": "",
+  "description": "A CLI tool for creating essential folders and files for React and Next.js projects with TypeScript setup.",
   "devDependencies": {
     "@types/node": "^22.10.2",
     "typescript": "^5.7.2"
