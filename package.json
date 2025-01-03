@@ -7,7 +7,8 @@
   },
   "bin": {
     "create-pages": "./dist/script/create_pages_folder.js",
-    "create-components": "./dist/script/create_components_folder.js"
+    "create-components": "./dist/script/create_components_folder.js",
+    "create-basic": "./dist/app/basic.js"
   },
   "keywords": [
     "react",
