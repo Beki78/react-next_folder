@@ -6,7 +6,8 @@
     "build": "tsc"
   },
   "bin": {
-    "create-folder": "./dist/index.js"
+    "create-pages": "./dist/script/create_pages_folder.js",
+    "create-components": "./dist/script/create_components_folder.js"
   },
   "keywords": [
     "react",
@@ -20,11 +21,12 @@
   "license": "MIT",
   "description": "A CLI tool for creating essential folders and files for React and Next.js projects with TypeScript setup.",
   "devDependencies": {
-    "@types/node": "^22.10.2",
+    "@types/node": "^22.10.3",
     "typescript": "^5.7.2"
   },
   "dependencies": {
-    "inquirer": "^12.3.0"
+    "inquirer": "^12.3.0",
+    "react-cli-builder": "^1.0.3"
   },
   "files": [
     "dist/**/*.js",
