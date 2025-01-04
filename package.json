@@ -13,6 +13,8 @@
     "create-utils": "./dist/script/create_utils_folder.js",
     "create-api": "./dist/script/create_api_folder.js",
     "create-auth": "./dist/script/create_auth_folder.js",
+    "create-context": "./dist/script/create_context_folder.js",
+    "create-store": "./dist/script/create_store_folder.js",
     "create-basic": "./dist/app/basic.js"
   },
   "keywords": [

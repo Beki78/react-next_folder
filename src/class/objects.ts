@@ -270,3 +270,126 @@ export const getCurrentUser = (): any => {
 };
 `,
 });
+
+export const folderContextTs = new SingleFolder({
+  mainDir: "src",
+  dirName: "context",
+  fileName: "MyContext.tsx",
+  fileContent: `// FeatureFlagContext.tsx
+
+import React, { createContext, useContext, ReactNode, useState } from 'react';
+
+// Define feature flags type
+interface FeatureFlags {
+    newCheckout: boolean;
+    betaAnalytics: boolean;
+}
+
+// Create a default feature flags object
+const defaultFlags: FeatureFlags = {
+    newCheckout: false,
+    betaAnalytics: false,
+};
+
+// Create context
+const FeatureFlagContext = createContext<{
+    flags: FeatureFlags;
+    setFlags: React.Dispatch<React.SetStateAction<FeatureFlags>>;
+}>({
+    flags: defaultFlags,
+    setFlags: () => {},
+});
+
+// Provider component
+export const FeatureFlagProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+    const [flags, setFlags] = useState<FeatureFlags>(defaultFlags);
+
+    return (
+        <FeatureFlagContext.Provider value={{ flags, setFlags }}>
+            {children}
+        </FeatureFlagContext.Provider>
+    );
+};
+
+// Custom hook to use feature flags
+export const useFeatureFlags = () => {
+    return useContext(FeatureFlagContext);
+};`,
+});
+export const folderContextJs = new SingleFolder({
+  mainDir: "src",
+  dirName: "context",
+  fileName: "MyContext.jsx",
+  fileContent: `// FeatureFlagContext.js
+
+import React, { createContext, useContext, useState } from 'react';
+
+// Create default feature flags object
+const defaultFlags = {
+    newCheckout: false,
+    betaAnalytics: false,
+};
+
+// Create context
+const FeatureFlagContext = createContext({
+    flags: defaultFlags,
+    setFlags: () => {},
+});
+
+// Provider component
+export const FeatureFlagProvider = ({ children }) => {
+    const [flags, setFlags] = useState(defaultFlags);
+
+    return (
+        <FeatureFlagContext.Provider value={{ flags, setFlags }}>
+            {children}
+        </FeatureFlagContext.Provider>
+    );
+};
+
+// Custom hook to use feature flags
+export const useFeatureFlags = () => {
+    return useContext(FeatureFlagContext);
+};`,
+});
+
+export const folderStoreJs = new SingleFolder({
+  mainDir: "src",
+  dirName: "store",
+  fileName: "store.js",
+  fileContent: `// useStore.js
+
+import create from 'zustand';
+
+// Define the store
+const useStore = create((set) => ({
+    count: 0,
+    increase: () => set((state) => ({ count: state.count + 1 })),
+    decrease: () => set((state) => ({ count: state.count - 1 })),
+}));
+
+export default useStore;`,
+});
+export const folderStoreTs = new SingleFolder({
+  mainDir: "src",
+  dirName: "store",
+  fileName: "store.ts",
+  fileContent: `// useStore.ts
+
+import create from 'zustand';
+
+interface StoreState {
+    count: number;
+    increase: () => void;
+    decrease: () => void;
+}
+
+// Define the store
+const useStore = create<StoreState>((set) => ({
+    count: 0,
+    increase: () => set((state) => ({ count: state.count + 1 })),
+    decrease: () => set((state) => ({ count: state.count - 1 })),
+}));
+
+export default useStore;`,
+});
