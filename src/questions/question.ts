@@ -1,7 +1,7 @@
 import inquirer from "inquirer";
-import { createJsxFile, createTsxFile } from "../utils/jsx_tsx_folder";
 import { createTsFile } from "../utils/ts_folder";
 import { Folder } from "../types/types";
+import { createNoCodeFileJs, createNoCodeFileTs } from "../utils/ts_nocode_";
 
 export const createScript = async (
   jsx: Folder,
@@ -21,9 +21,9 @@ export const createScript = async (
     const { isTypescript } = questions;
 
     if (!isTypescript) {
-      await createJsxFile(jsx);
+      await createNoCodeFileJs(jsx);
     } else {
-      await createTsxFile(tsx);
+      await createNoCodeFileTs(tsx);
       await createTsFile(ts);
     }
   } catch (error) {
