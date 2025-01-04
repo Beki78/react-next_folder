@@ -11,6 +11,8 @@
     "create-hook": "./dist/script/create_hook_folder.js",
     "create-lib": "./dist/script/create_lib_folder.js",
     "create-utils": "./dist/script/create_utils_folder.js",
+    "create-api": "./dist/script/create_api_folder.js",
+    "create-auth": "./dist/script/create_auth_folder.js",
     "create-basic": "./dist/app/basic.js"
   },
   "keywords": [
