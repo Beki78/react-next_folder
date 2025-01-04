@@ -35,3 +35,44 @@ export const folderTs = new SingleFolder({
   fileContent: ``,
 });
 
+export const folderHookJs = new SingleFolder({
+  mainDir: "src",
+  dirName: "hook",
+  fileName: "hook.js",
+  fileContent: ``,
+});
+export const folderHookTs = new SingleFolder({
+  mainDir: "src",
+  dirName: "hook",
+  fileName: "hook.ts",
+  fileContent: ``,
+});
+
+export const folderLibJs = new SingleFolder({
+  mainDir: "src",
+  dirName: "lib",
+  fileName: "lib.js",
+  fileContent: ``,
+});
+export const folderLibTs = new SingleFolder({
+  mainDir: "src",
+  dirName: "lib",
+  fileName: "lib.ts",
+  fileContent: ``,
+});
+
+
+export const folderUtilsJs = new SingleFolder({
+  mainDir: "src",
+  dirName: "utils",
+  fileName: "util.js",
+  fileContent: ``,
+});
+export const folderUtilsTs = new SingleFolder({
+  mainDir: "src",
+  dirName: "utils",
+  fileName: "util.ts",
+  fileContent: ``,
+});
+
+

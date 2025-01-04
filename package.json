@@ -8,6 +8,9 @@
   "bin": {
     "create-pages": "./dist/script/create_pages_folder.js",
     "create-components": "./dist/script/create_components_folder.js",
+    "create-hook": "./dist/script/create_hook_folder.js",
+    "create-lib": "./dist/script/create_lib_folder.js",
+    "create-utils": "./dist/script/create_utils_folder.js",
     "create-basic": "./dist/app/basic.js"
   },
   "keywords": [
