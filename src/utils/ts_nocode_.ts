@@ -1,7 +1,5 @@
 import { Folder } from "../types/types";
 
-
-
 export const createNoCodeFileJs = async (folder: Folder) => {
   folder.createFolderPath();
   folder.createFilePath();

@@ -1,7 +1,5 @@
 import { Folder } from "../types/types";
 
-
-
 export const createJsxFile = async (folder: Folder) => {
   folder.createFolderPath();
   folder.createFilePath();

@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-import { folderCompJs, folderCompTs, folderTs } from "../class/objects";
+import {  folderApiJs, folderApiTs, folderTs } from "../class/objects";
 import { createScript } from "../questions/question";
 
 const createFolderScript = () => {
-  createScript(folderCompJs, folderCompTs, folderTs);
+  createScript(folderApiJs, folderApiTs, folderTs);
 };
 
 createFolderScript();

@@ -3,9 +3,7 @@
 import { folderHookJs, folderHookTs, folderTs } from "../class/objects";
 import { createScript } from "../questions/question";
 
-
-
-const createFolderScript =  () => {
+const createFolderScript = () => {
   createScript(folderHookJs, folderHookTs, folderTs);
 };
 
