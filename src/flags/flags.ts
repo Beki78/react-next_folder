@@ -11,7 +11,7 @@ Options:
   [auth]       - Create a new auth folder
   [component]  - Create a new component folder
   [context]    - Create a new context folder
-  [hooks]      - Create a new hooks folder
+  [hook]      - Create a new hooks folder
   [lib]        - Create a new library folder
   [pages]      - Create a new pages folder
   [redux]      - Create a new redux folder

@@ -30,6 +30,7 @@ export const createThreeFolderScript = async (
       await createNoCodeFileJs(jsx3);
     } else {
       await createNoCodeFileTs(tsx1);
+      await createNoCodeFileTs(tsx2);
       await createNoCodeFileTs(tsx3);
       await createTsFile(ts);
     }
