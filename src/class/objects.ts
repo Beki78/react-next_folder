@@ -393,3 +393,41 @@ const useStore = create<StoreState>((set) => ({
 
 export default useStore;`,
 });
+
+export const folderReduxStoreJs = new SingleFolder({
+  mainDir: "src",
+  dirName: "store",
+  fileName: "store.js",
+  fileContent: ``,
+});
+export const folderReduxStoreTs = new SingleFolder({
+  mainDir: "src",
+  dirName: "store",
+  fileName: "store.ts",
+  fileContent: ``,
+});
+export const folderReduxSliceJs = new SingleFolder({
+  mainDir: "src",
+  dirName: "slice",
+  fileName: "slice.js",
+  fileContent: ``,
+});
+export const folderReduxSliceTs = new SingleFolder({
+  mainDir: "src",
+  dirName: "slice",
+  fileName: "slice.ts",
+  fileContent: ``,
+});
+
+export const folderReduxSagaJs = new SingleFolder({
+  mainDir: "src",
+  dirName: "saga",
+  fileName: "saga.js",
+  fileContent: ``,
+});
+export const folderReduxSagaTs = new SingleFolder({
+  mainDir: "src",
+  dirName: "saga",
+  fileName: "saga.ts",
+  fileContent: ``,
+});

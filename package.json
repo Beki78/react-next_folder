@@ -1,6 +1,6 @@
 {
-  "name": "react-next_folders",
-  "version": "2.8.0",
+  "name": "react-cli-builder",
+  "version": "2.0.0",
   "main": "index.js",
   "scripts": {
     "build": "tsc"
@@ -15,7 +15,10 @@
     "create-auth": "./dist/script/create_auth_folder.js",
     "create-context": "./dist/script/create_context_folder.js",
     "create-store": "./dist/script/create_store_folder.js",
-    "create-basic": "./dist/app/basic.js"
+    "create-redux": "./dist/script/create_redux_folder.js",
+    "create-redux-saga": "./dist/script/create_redux_saga.js",
+    "create-basic": "./dist/app/basic.js",
+    "react-cli-builder": "./dist/flags/flags.js"
   },
   "keywords": [
     "react",
