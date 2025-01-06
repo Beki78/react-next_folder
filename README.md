@@ -73,3 +73,26 @@ to get help run:
 ```bash
 npx react-cli-builder --help
 ```
+
+## Multi-Argument Folder Creation
+
+With the new update, you can now create multiple folders in one command:
+```bash
+npx create-folders <folder1> <folder2> ...
+```
+Example:
+
+```bash
+npx create-folders auth lib pages
+```
+This command creates the auth, lib, and pages folders along with their respective files.
+## You can also create a single folder 
+```bash
+npx create-folders <folder1>
+```
+Example:
+
+```bash
+npx create-folders auth 
+```
+this will create a folder called auth
