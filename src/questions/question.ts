@@ -9,18 +9,7 @@ export const createScript = async (
   ts: Folder
 ): Promise<void> => {
   try {
-    const questions = await inquirer.prompt([
-      {
-        type: "confirm",
-        name: "isTypescript",
-        message: "Are you using Typescript?",
-        default: false,
-      },
-    ]);
-
-    const { isTypescript } = questions;
-
-    if (!isTypescript) {
+    if (!true) {
       await createNoCodeFileJs(jsx);
     } else {
       await createNoCodeFileTs(tsx);

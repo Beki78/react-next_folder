@@ -14,7 +14,8 @@ npm create-folders auth lib pages
 
 This command creates the auth, lib, and pages folders along with their respective files.
 */
-
+import { EventEmitter } from "events";
+import inquirer from "inquirer";
 import {
   folderAuthJs,
   folderAuthTs,
@@ -45,12 +46,15 @@ import {
 import { SingleFolder } from "../libs/single_folder";
 import { createScript } from "../questions/question";
 
-// Type definition for folder objects
+// Increase max listeners to prevent warnings
+EventEmitter.defaultMaxListeners = 20;
+
+// Type definition for folder mappings
 type FolderMappings = {
   [key: string]: SingleFolder[];
 };
 
-// Mapping for folder creation objects
+// Folder mappings for different types of folders
 const folderMappings: FolderMappings = {
   auth: [folderAuthJs, folderAuthTs],
   api: [folderApiJs, folderApiTs],
@@ -67,19 +71,50 @@ const folderMappings: FolderMappings = {
   types: [folderTs],
 };
 
-// Function to create the requested folders
-const createFolderScript = (folders: string[]): void => {
+// Function to create folders
+const createFolders = (folders: string[], useTypescript: boolean): void => {
   folders.forEach((folder) => {
     if (folderMappings[folder]) {
-      folderMappings[folder].forEach((folderObj) => {
-        createScript(folderObj, folderObj, folderObj);
-      });
+      const folderToCreate = useTypescript
+        ? folderMappings[folder][1] // TypeScript version
+        : folderMappings[folder][0]; // JavaScript version
+
+      if (folderToCreate) {
+        createScript(folderToCreate, folderToCreate, folderToCreate);
+      } else {
+        console.log(`No folder configuration available for: ${folder}`);
+      }
     } else {
       console.log(`Unknown folder type: ${folder}`);
     }
   });
 };
 
-// Retrieve arguments passed in the command (excluding 'create-folders' command itself)
-const args = process.argv.slice(2);
-createFolderScript(args);
+// Main script logic
+const main = async () => {
+  // Retrieve command-line arguments (excluding the script name)
+  const args = process.argv.slice(2);
+
+  if (args.length === 0) {
+    console.log(
+      "No folder names provided. Usage: create-folders <folder1> <folder2> ..."
+    );
+    process.exit(1);
+  }
+
+  // Prompt the user for TypeScript preference
+  const { useTypescript } = await inquirer.prompt([
+    {
+      type: "confirm",
+      name: "useTypescript",
+      message: "Are you using TypeScript?",
+      default: false,
+    },
+  ]);
+
+  // Create folders based on arguments and TypeScript preference
+  createFolders(args, useTypescript);
+};
+
+// Execute the main function
+main().catch((err) => console.error(err));
