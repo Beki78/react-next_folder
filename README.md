@@ -62,7 +62,7 @@ npx create-[options]
 - **[basic]**  
   Create a new basic folder structure (Pages & Components).
 
-## Example
+Example: 
 
 ```bash
 npx create-api
