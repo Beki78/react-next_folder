@@ -19,7 +19,8 @@
     "create-redux-saga": "./dist/script/create_redux_saga.js",
     "create-tailwind": "./dist/script/create_tailwind_folder.js",
     "create-basic": "./dist/app/basic.js",
-    "react-cli-builder": "./dist/flags/flags.js"
+    "react-cli-builder": "./dist/flags/flags.js",
+    "create-folders": "./dist/script/create_multiple_folders.js"
   },
   "keywords": [
     "react",
