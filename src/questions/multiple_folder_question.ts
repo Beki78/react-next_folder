@@ -1,3 +1,4 @@
+
 import inquirer from "inquirer";
 import { createTsFile } from "../utils/ts_folder";
 import { Folder } from "../types/types";
@@ -9,19 +10,8 @@ export const createScript = async (
   ts: Folder
 ): Promise<void> => {
   try {
-    const questions = await inquirer.prompt([
-      {
-        type: "confirm",
-        name: "isTypescript",
-        message: "Are you using Typescript?",
-        default: false,
-      },
-    ]);
-
-    const { isTypescript } = questions;
-
-    if (!isTypescript) {
-      await createNoCodeFileJs(jsx);
+    if (!true) {
+  createNoCodeFileJs(jsx);
     } else {
       await createNoCodeFileTs(tsx);
       await createTsFile(ts);

@@ -44,8 +44,7 @@ import {
   folderTs,
 } from "../class/objects";
 import { SingleFolder } from "../libs/single_folder";
-import { createScript } from "../questions/question";
-
+import { createScript } from "../questions/multiple_folder_question";
 // Increase max listeners to prevent warnings
 EventEmitter.defaultMaxListeners = 20;
 
